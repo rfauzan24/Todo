@@ -1,1 +1,1 @@
-Hasil implementasi AngularJS, Bootstrap dan SCSS`
+Hasil implementasi AngularJS, Bootstrap dan SCSS
