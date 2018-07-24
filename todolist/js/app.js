@@ -5,7 +5,7 @@
  *
  * @type {angular.Module}
  */
-angular.module('todo', ['ngRoute', 'ngResource'])
+angular.module('todomvc', ['ngRoute', 'ngResource'])
 	.config(function ($routeProvider) {
 		'use strict';
 
