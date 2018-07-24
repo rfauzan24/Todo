@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="bower_components/angular/angular.min.js"></script>
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="stye.scss">
   </head>
 
   <script>
@@ -83,6 +84,8 @@
   <div class="container">
   <div class="row">
     <div id="list1" class="col-md-6" ng-controller='ToDoListController as list1'>
+       <br>
+       <br>
        <h2>To Do:</h2>
        <form ng-submit="list1.addNewItem();" >
        <input type="text" class="form-control" ng-model="list1.newItem" placeholder="New To Do Item" >
