@@ -1,114 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" ng-app = 'KSTodoListTracker'>
-  <head>
-    <title>To Do List</title>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Latihan Todo List</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="bower_components/angular/angular.min.js"></script>
-	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="stye.scss">
-  </head>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/base.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/index.css"/>
 
-  <script>
+    <style>[ng-cloak] {display: none;}</style>
+
+</head>
+<body ng-app="todomvc">
+    <ng-view></ng-view>
     
-    (function () {
-	'use strict';
-		angular.module('KSTodoListTracker', [])
-		.controller('ToDoListController', ToDoListController)
-		.controller('CompletedItemsController', CompletedItemsController)
-		.service('ToDoListService', ToDoListService);
-		ToDoListController.$inject = ['ToDoListService'];
-		CompletedItemsController.$inject = ['ToDoListService'];
-		ToDoListService.$inject = ['$filter'];
-		
-		function ToDoListController(ToDoListService) {
-			var showList = this;
-	  		showList.items = ToDoListService.getTodoList();
-	  		showList.newItem = "";
-  			showList.completeToDoItem = function(itemIdex){
-    		var itemName = showList.items[itemIdex]["name"];
-    		ToDoListService.addCompletedItem(itemName);
-    		ToDoListService.removeToDoItem(itemIdex);
-  			};
-  			
-  			showList.deleteToDoItem = function(itemIndex){
-  			ToDoListService.removeToDoItem(itemIndex);
-  			};
-  			
-  			showList.addNewItem = function () {
-    			ToDoListService.addToDoItem(showList.newItem);
-  			}
-		}
-		function CompletedItemsController(ToDoListService) {
-		  var showList = this;
-		  showList.items = ToDoListService.getCompletedList();
-		  showList.deleteCompletedItem = function(itemIndex){
-		  ToDoListService.removeCompletedItem(itemIndex);
-		  };
-		}
-		function ToDoListService($filter) {
-		  var service = this;
-		  var todoList = [];
-		  var completedList = [];
-		  service.getTodoList = function () {
-			return todoList;
-		  };
-		  
-		  service.getCompletedList = function () {
-			return completedList;
-		  };
-		  service.removeToDoItem = function (itemIdex) {
-			todoList.splice(itemIdex, 1);
-		  };
-		 service.removeCompletedItem = function(itemIndex){
-		 	completedList.splice(itemIndex,1);
-		 };
-		 
-		 service.addToDoItem = function(itemName){
-		   var item = {
-				name: itemName
-				};
-				todoList.push(item);
-		 };
-		 service.addCompletedItem = function(itemName){
-		   var finalStr = itemName + ' completed on - ' +  $filter('date')(new Date(), 'yyyy-MM-dd hh:mm');
-		   var item = {
-				name: finalStr
-				};
-				completedList.push(item);
-		 };
-	}
-})();
-</script>
-  </head>
-<body>
-  <div class="container">
-  <div class="row">
-    <div id="list1" class="col-md-6" ng-controller='ToDoListController as list1'>
-       <br>
-       <br>
-       <h2>To Do:</h2>
-       <form ng-submit="list1.addNewItem();" >
-       <input type="text" class="form-control" ng-model="list1.newItem" placeholder="New To Do Item" >
-       </form>
-       <br>
-       <ul class="list-group">
-        <li class="list-group-item" ng-repeat="item in list1.items">
-          {{ item.name }}
-          <button type="button" class="btn btn-success btn-xs" ng-click="list1.completeToDoItem($index);">Mark as Complete</button>
-          <button type="button" class="btn btn-danger btn-xs" ng-click="list1.deleteToDoItem($index);">Delete</button>
-        </li>
-      </ul>
-    </div>
-</div>
-  <div class="row">
-    <div id="list2" class="col-md-6" ng-controller='CompletedItemsController as list2'>
-       <h2>Completed:</h2>
-       <ul class="list-group">
-        <li class="list-group-item" ng-repeat="item in list2.items">
-         	{{ item.name}}
-         	<button type="button" class="btn btn-danger btn-xs" ng-click="list2.deleteCompletedItem($index);">Delete</button>
-        </li>
-      </ul>
-</div>
+    <script src="base.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/angular-resource.js"></script>
+    <script src="js/app.js"></script>
+
 </body>
 </html>
