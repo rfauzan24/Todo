@@ -1,5 +1,5 @@
 angular.module('todo')
-	.controller('todoCtrl', function TodoCtrl($scope, $routeParams, $filter, store) {
+	.controller('todoCtrl', function todoCtrl($scope, $routeParams, $filter, store) {
 		'use strict';
 
 		var todos = $scope.todos = store.todos;
