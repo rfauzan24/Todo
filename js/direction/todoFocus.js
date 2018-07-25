@@ -1,4 +1,4 @@
-angular.module('todo')
+angular.module('todomvc')
 	.directive('todoFocus', function todoFocus($timeout) {
 		'use strict';
 

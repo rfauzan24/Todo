@@ -1,4 +1,4 @@
-angular.module('todo')
+angular.module('todomvc')
 	.factory('todoStorage', function ($http, $injector) {
 		'use strict';
 

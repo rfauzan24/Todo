@@ -1,4 +1,4 @@
-angular.module('todo')
+angular.module('todomvc')
 	.directive('todoEscape', function () {
 		'use strict';
 

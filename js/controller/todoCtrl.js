@@ -1,4 +1,4 @@
-angular.module('todo')
+angular.module('todomvc')
 	.controller('todoCtrl', function todoCtrl($scope, $routeParams, $filter, store) {
 		'use strict';
 
