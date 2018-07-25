@@ -1,16 +1,9 @@
-/*global angular */
-
-/**
- * The main TodoMVC app module
- *
- * @type {angular.Module}
- */
-angular.module('todomvc', ['ngRoute', 'ngResource'])
+angular.module('todo', ['ngRoute', 'ngResource'])
 	.config(function ($routeProvider) {
 		'use strict';
 
 		var routeConfig = {
-			controller: 'TodoCtrl',
+			controller: 'todoCtrl',
 			templateUrl: 'todo-index.html',
 			resolve: {
 				store: function (todoStorage) {

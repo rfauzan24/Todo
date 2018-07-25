@@ -172,7 +172,7 @@
 		}
 
 		if (!template && learnJSON.templates) {
-			template = learnJSON.templates.todomvc;
+			template = learnJSON.templates.todo;
 		}
 
 		if (!framework && document.querySelector('[data-framework]')) {
